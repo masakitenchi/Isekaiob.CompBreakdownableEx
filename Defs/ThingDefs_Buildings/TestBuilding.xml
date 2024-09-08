@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+    <!--
+    Test Purpose ! Disable or Delete when release !
+    A direct copy of the Electric Stove from Data/Core.
+    Made to Test the framework and see its result.
+    -->
+<ThingDef ParentName="BenchBase">
+    <defName>IKOB_TEST_CB_ElectricStove</defName>
+    <label>TEST B</label>
+    <description>An electrically-powered stove with an attached countertop for preparing meals.</description>
+    <thingClass>Building_WorkTable_HeatPush</thingClass>
+    <graphicData>
+      <texPath>Things/Building/Production/TableStoveElectric</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(3.5,1.5)</drawSize>
+      <damageData>
+        <cornerTL>Damage/Corner</cornerTL>
+        <cornerTR>Damage/Corner</cornerTR>
+        <cornerBL>Damage/Corner</cornerBL>
+        <cornerBR>Damage/Corner</cornerBR>
+      </damageData>
+    </graphicData>
+    <castEdgeShadows>true</castEdgeShadows>
+    <staticSunShadowHeight>0.20</staticSunShadowHeight>
+    <constructEffect>ConstructMetal</constructEffect>
+    <costList>
+      <Steel>80</Steel>
+      <ComponentIndustrial>2</ComponentIndustrial>
+    </costList>
+    <altitudeLayer>Building</altitudeLayer>
+    <fillPercent>0.5</fillPercent>
+    <useHitPoints>True</useHitPoints>
+    <statBases>
+      <WorkToBuild>2000</WorkToBuild>
+      <MaxHitPoints>180</MaxHitPoints>
+      <Flammability>1.0</Flammability>
+    </statBases>
+    <size>(3,1)</size>
+    <designationCategory>Production</designationCategory>
+    <uiOrder>2110</uiOrder>
+    <passability>PassThroughOnly</passability>
+    <pathCost>50</pathCost>
+    <hasInteractionCell>True</hasInteractionCell>
+    <interactionCellOffset>(0,0,-1)</interactionCellOffset>
+    <surfaceType>Item</surfaceType>
+    <constructionSkillPrerequisite>4</constructionSkillPrerequisite>
+    <recipes>
+      <li>CookMealSimple</li>
+      <li>CookMealFine</li>
+      <li>CookMealFine_Veg</li>
+      <li>CookMealFine_Meat</li>
+      <li>CookMealLavish</li>
+      <li>CookMealLavish_Veg</li>
+      <li>CookMealLavish_Meat</li>
+      <li>CookMealSurvival</li>
+      <li>CookMealSimpleBulk</li>
+      <li>CookMealFineBulk</li>
+      <li>CookMealFineBulk_Veg</li>
+      <li>CookMealFineBulk_Meat</li>
+      <li>CookMealLavishBulk</li>
+      <li>CookMealLavishBulk_Veg</li>
+      <li>CookMealLavishBulk_Meat</li>
+      <li>CookMealSurvivalBulk</li>
+      <li>Make_Pemmican</li>
+      <li>Make_PemmicanBulk</li>
+      <li MayRequire="Ludeon.RimWorld.Biotech">Make_BabyFood</li>
+      <li MayRequire="Ludeon.RimWorld.Biotech">Make_BabyFoodBulk</li>
+    </recipes>
+    <inspectorTabs>
+      <li>ITab_Bills</li>
+    </inspectorTabs>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <shortCircuitInRain>true</shortCircuitInRain>
+        <basePowerConsumption>350</basePowerConsumption>
+      </li>
+      <li Class="CompProperties_Flickable"/>
+      <li Class="Isekaiob.CompProperties_BreakdownableEx">
+        <!-- Cost thing item to repair with-->
+        <RepairCost>ComponentSpacer</RepairCost>
+        <!-- Times in Tick to repair with, a Day is 60000 Tick. -->
+        <RepairTime>3600</RepairTime>
+        <!-- Interval MTB Ticks to be used for breakdown calc,recommended to give a bigger value unless you mean it.
+         Vanilla is 13680000.
+        -->
+        <BreakdownMTBTicks>60000</BreakdownMTBTicks>
+    </li>
+      <li Class="CompProperties_HeatPusher">
+        <compClass>CompHeatPusherPowered</compClass>
+        <heatPerSecond>3</heatPerSecond>
+      </li>
+    </comps>
+    <building>
+      <isMealSource>true</isMealSource>
+      <spawnedConceptLearnOpportunity>BillsTab</spawnedConceptLearnOpportunity>
+      <heatPerTickWhileWorking>0.10</heatPerTickWhileWorking>
+    </building>
+    <designationHotKey>Misc8</designationHotKey>
+    <placeWorkers>
+      <li>PlaceWorker_PreventInteractionSpotOverlap</li>
+    </placeWorkers>
+    <researchPrerequisites>
+      <li>Electricity</li>
+    </researchPrerequisites>
+  </ThingDef>
+</Defs>

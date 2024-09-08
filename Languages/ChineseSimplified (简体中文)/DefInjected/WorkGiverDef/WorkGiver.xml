@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: fix broken-down buildings -->
+  <IKOBFixBrokenDownBuildingSK.label>维修故障建筑</IKOBFixBrokenDownBuildingSK.label>
+  <!-- EN: replacing broken components in -->
+  <IKOBFixBrokenDownBuildingSK.gerund>替换故障部件于</IKOBFixBrokenDownBuildingSK.gerund>
+  <!-- EN: replace broken components in -->
+  <IKOBFixBrokenDownBuildingSK.verb>替换故障部件于</IKOBFixBrokenDownBuildingSK.verb>
+  
+</LanguageData>

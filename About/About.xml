@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ModMetaData>
+	<name>[IKOB]CompBreakdownExtended</name>
+	<author>Isekaiob</author>
+	<supportedVersions>
+		<li>1.5</li>
+	</supportedVersions>
+	<packageId>isekaiob.CompBreakdownExtended</packageId>
+	<description>Making The Game ever harder! by making breakdown mechanics more complicated. See Readme.md(not finished) for usage.</description>
+</ModMetaData>

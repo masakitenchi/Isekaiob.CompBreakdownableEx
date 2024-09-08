@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Test purpose, disable or delete when release ! -->
+<Patch>
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/WorkGiverDef[defName="DoBillsCook"]/fixedBillGiverDefs</xpath>
+        <value>
+            <li>IKOB_TEST_CB_ElectricStove</li>
+        </value>
+      </Operation>
+</Patch>

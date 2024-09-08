@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: electric stove -->
+  <IKOB_TEST_CB_ElectricStove.label>测试用电建筑</IKOB_TEST_CB_ElectricStove.label>
+  <!-- EN: An electrically-powered stove with an attached countertop for preparing meals. -->
+  <IKOB_TEST_CB_ElectricStove.description>测试建筑，请勿搞混！</IKOB_TEST_CB_ElectricStove.description>
+  
+</LanguageData>
