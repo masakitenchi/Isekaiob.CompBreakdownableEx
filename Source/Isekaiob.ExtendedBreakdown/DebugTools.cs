@@ -1,5 +1,6 @@
 ﻿using LudeonTK;
 using Verse;
+using RimWorld;
 
 namespace Isekaiob
 {
@@ -10,7 +11,7 @@ namespace Isekaiob
         {
             foreach (Thing thing in Find.CurrentMap.thingGrid.ThingsAt(UI.MouseCell()))
             {
-                CompBreakdownableEx compBreakdownable = thing.TryGetComp<CompBreakdownableEx>();
+                CompBreakdownable compBreakdownable = thing.TryGetComp<CompBreakdownable>();
                 if (compBreakdownable != null && !compBreakdownable.BrokenDown)
                 {
                     compBreakdownable.DoBreakdown();
@@ -22,7 +23,7 @@ namespace Isekaiob
         {
             foreach (Thing thing in Find.CurrentMap.thingGrid.ThingsAt(UI.MouseCell()))
             {
-                CompBreakdownableEx compBreakdownable = thing.TryGetComp<CompBreakdownableEx>();
+                CompBreakdownable compBreakdownable = thing.TryGetComp<CompBreakdownable>();
                 if (compBreakdownable != null && compBreakdownable.BrokenDown)
                 {
                     compBreakdownable.Notify_Repaired();

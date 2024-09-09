@@ -12,23 +12,16 @@ namespace Isekaiob
     /// Added A Place to specify which thingdef to use when repairing this, Meant to be gathered by WorkGiver And Reserve.
     /// Also Exposed The MTB And Make it live in logic. I wonder why tynan wrote this value and end up not used anymore.
     /// </summary>
-    public class CompBreakdownableEx : ThingComp
+    public class CompBreakdownableEx : CompBreakdownable 
     {
         //Begin Mod Here
         public CompProperties_BreakdownableEx Props => (CompProperties_BreakdownableEx)this.props;
-        private int BreakdownMTBTicks => this.Props.BreakdownMTBTicks;
         public ThingDef RepairCost => this.Props.RepairCost;
         public int RepairTime => this.Props.RepairTime;
-
-        private bool brokenDownInt;
-        private CompPowerTrader powerComp;
-        public const string BreakdownSignal = "Breakdown";
-        private OverlayHandle? overlayBrokenDown;
         /// <summary>
         /// This string is pregenerated at runtime so no inspection IMGUI string roaming GC
         /// </summary>
         private string INSPECT_Repair;
-        public bool BrokenDown => this.brokenDownInt;
 
         public override void PostExposeData()
         {
@@ -53,7 +46,7 @@ namespace Isekaiob
 #if DEBUG
             Verse.Log.Message(string.Format("[IKOB]CompBreakdownableEx now PostSpawnSetup on Thing {0} with cost {3} at {1} on Map Index {2}",this.parent.Label,this.parent.Position,this.parent.Map.Index,this.RepairCost.defName));
 #endif
-            if (this.parent.GetComp<CompBreakdownable>() != null)
+            if (this.parent.GetComps<CompBreakdownable>().Any(x => x.GetType() == typeof(CompBreakdownableEx)))
             {
                 Verse.Log.Error(string.Format("[IKOB]CBEX Detected both CBEX And Vanilla CompBreakdownAble coexists on defName \n {0},Check the def.",this.parent.def.defName));
             }
@@ -85,7 +78,7 @@ namespace Isekaiob
             map.GetComponent<BreakdownManagerEx>().Deregister(this);
         }
 
-        public void CheckForBreakdown()
+        new public void CheckForBreakdown()
         {
             if (!this.CanBreakdownNow() || !Rand.MTBEventOccurs(BreakdownMTBTicks, 1f, (float)CompBreakdownableExtended_Mod.settings.iThrottleCompBreakdownableEx))
                 return;
@@ -95,11 +88,12 @@ namespace Isekaiob
         {
             if (this.BrokenDown)
                 return false;
-            //Todo: modsetting.should powerless machine breakdown switch here.
+            if (this.powerComp == null && !CompBreakdownableExtended_Mod.settings.bNonPoweredWorktablesBreakdown)
+                return false;
             return this.powerComp == null || this.powerComp.PowerOn;
         }
 
-        public void Notify_Repaired()
+        new public void Notify_Repaired()
         {
             this.brokenDownInt = false;
             this.parent.Map.GetComponent<BreakdownManagerEx>().Notify_Repaired((Thing)this.parent);
@@ -109,7 +103,7 @@ namespace Isekaiob
             this.UpdateOverlays();
         }
 
-        public void DoBreakdown()
+        new public void DoBreakdown()
         {
             this.brokenDownInt = true;
             //Todo: This signal needs further path tracing to see how it affect other things.

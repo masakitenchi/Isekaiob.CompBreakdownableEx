@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Defs>
-    <JobDef>
-        <defName>FixBrokenDownBuildingEx</defName>
-        <driverClass>Isekaiob.JobDriver_FixBrokenDownBuildingEx</driverClass>
-        <reportString>replacing broken components in TargetA.</reportString>
-        <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
-      </JobDef>
-</Defs>

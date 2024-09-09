@@ -36,10 +36,12 @@ namespace Isekaiob
             lst.Label(settings.iThrottleCompBreakdownableEx.ToString());
             lst.Label("iThrottleCompBreakdownableEx_Desc".Translate());
             lst.IntAdjuster(ref settings.iThrottleCompBreakdownableEx, 100, 641);
+            lst.CheckboxLabeled("bNonPoweredWorktablesBreakdown".Translate(), ref settings.bNonPoweredWorktablesBreakdown);
             lst.GapLine();
             if (lst.ButtonText("Reset Settings".Translate()))
             {
                 settings.iThrottleCompBreakdownableEx = 1041;
+                settings.bNonPoweredWorktablesBreakdown = true;
             }
             lst.End();
             base.DoSettingsWindowContents(inRect);

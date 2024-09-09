@@ -7,7 +7,7 @@ namespace Isekaiob
     /// <summary>
     /// Made to Maintain Same behaviour of Vanilla Rimworld.
     /// </summary>
-    public class CompProperties_BreakdownableEx : CompProperties
+    public class CompProperties_BreakdownableEx : CompProperties_Breakdownable
     {
         /// <summary>
         /// Rimworld CompBreakdownable default Breakdown MTB.
@@ -25,8 +25,8 @@ namespace Isekaiob
         public CompProperties_BreakdownableEx()
         {
             //First catch on null or failure repaircost, revert back to vanilla cost.
-            if (RepairCost == null)
-                RepairCost = CBEXCompLikeThingDefOf.ComponentIndustrial;
+            /* if (RepairCost == null)
+                RepairCost = CBEXCompLikeThingDefOf.ComponentIndustrial; */ // Redundant with L23?
             this.compClass = typeof(Isekaiob.CompBreakdownableEx);
         }
         /// <summary>
@@ -36,12 +36,12 @@ namespace Isekaiob
         /// <returns></returns>
         public override IEnumerable<StatDrawEntry> SpecialDisplayStats(StatRequest req)
         {
-            foreach (StatDrawEntry statDrawEntry in base.SpecialDisplayStats(req))
+            // CompProperties.SpecialDisplayStats returns Enumerable.Empty<StatDrawEntry>()
+            // So it's redundant to call base
+            /* foreach (StatDrawEntry statDrawEntry in base.SpecialDisplayStats(req))
             {
                 yield return statDrawEntry;
-            }
-            //IDK WTF IS THIS. CAN SOMEONE TELLME WHAT IS THIS? CAN THIS BE SAFELY DELETED?
-            IEnumerator<StatDrawEntry> enumerator = null;
+            } */
             //Repair cost
             yield return new StatDrawEntry(StatCategoryDefOf.Building,
                 "IKOB_CBEX_RCT".Translate(),
@@ -51,7 +51,6 @@ namespace Isekaiob
             //Repair Time
             yield return new StatDrawEntry(StatCategoryDefOf.Building, "IKOB_CBEX_RT".Translate(),
                 RepairTime.ToString(), "IKOB_CBEX_REPAIR_TIME".Translate(), 11001);
-            yield break;
             yield break;
         }
     }

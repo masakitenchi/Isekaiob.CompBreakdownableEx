@@ -5,4 +5,7 @@
 <IKOB_CBEX_REPAIR_WITH>当此建筑故障时修复所需要的物品</IKOB_CBEX_REPAIR_WITH>
 <IKOB_CBEX_RT>修复耗时</IKOB_CBEX_RT>
 <IKOB_CBEX_REPAIR_TIME>此建筑故障后修复所需的耗时(Ticks)</IKOB_CBEX_REPAIR_TIME>
+
+
+<Isekaiob.NoComponentsToRepairTrans>缺少可用的{0}</Isekaiob.NoComponentsToRepairTrans>
 </LanguageData> 

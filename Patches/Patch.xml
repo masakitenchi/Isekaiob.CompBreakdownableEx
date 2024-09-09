@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patch>
+
+	<!--
+	<li Class="Isekaiob.ModExtension_Breakdownable">
+		<==For how many ticks the event triggers once in average.==>
+		<eventMTBInTicks>13680000</eventMTBInTicks>
+		<==The item used for repair.==>
+		<RepairCost>ComponentIndustrial</RepairCost>
+		<==How many ticks it takes to repair.==>
+		<ticksToRepair>1000</ticksToRepair>
+	</li>
+	-->
+
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/ThingDef[@Name="WorkTable"]</xpath>
+		<value>
+			<li Class="Isekaiob.ModExtension_Breakdownable">
+				<eventMTBInTicks>27360000</eventMTBInTicks>
+				<RepairCost>ComponentUltra</RepairCost>
+				<ticksToRepair>10000</ticksToRepair>
+			</li>
+		</value>
+	</Operation>
+</Patch>
