@@ -13,6 +13,7 @@ namespace Isekaiob
 {
 	public class ModExtension_Breakdownable : DefModExtension
 	{
+		public string label = "BrokenDown";
 		public int eventMTBInTicks = CompBreakdownable.BreakdownMTBTicks;
 		public ThingDef RepairCost = ThingDefOf.ComponentIndustrial;
 		public int ticksToRepair = 1000;
@@ -94,10 +95,12 @@ namespace Isekaiob
 					Label instLabel = generator.DefineLabel();
 					inst.labels.Add(instLabel);
 					Label ComponentIndustrial = generator.DefineLabel();
+					// this.def.GetModExtension<ModExtension_Breakdownable>()
 					yield return Ldloc_0;
 					yield return Ldfld[def];
 					yield return Callvirt[get_ModExt];
 					yield return Stloc[modExtension];
+					// 
 					yield return Ldloc[modExtension];
 					yield return Brfalse_S[ComponentIndustrial];
 					yield return Ldloc[modExtension];
@@ -123,7 +126,7 @@ namespace Isekaiob
 					yield return Call[AccessTools.Method(typeof(NamedArgument), "op_Implicit", new[] { typeof(string) })];
 					yield return Call[AccessTools.Method(typeof(TranslatorFormattedStringExtensions), nameof(TranslatorFormattedStringExtensions.Translate), parameters: new[] { typeof(string), typeof(NamedArgument) })];
 					// TaggedString has a overriden version of ToString, yet using that will raise an error
-					yield return Call[AccessTools.Method(typeof(TaggedString), "op_Implicit", parameters: new[] { typeof(TaggedString)})];
+					yield return Call[AccessTools.Method(typeof(TaggedString), "op_Implicit", parameters: new[] { typeof(TaggedString) })];
 					continue;
 				}
 				yield return inst;
@@ -158,11 +161,42 @@ namespace Isekaiob
 		[HarmonyPostfix]
 		public static IEnumerable<StatDrawEntry> ShowComponentAndTime(IEnumerable<StatDrawEntry> result, ThingDef __instance)
 		{
-			foreach(var entry in result) yield return entry;
+			foreach (var entry in result) yield return entry;
 			if (__instance.GetModExtension<ModExtension_Breakdownable>() is ModExtension_Breakdownable modExt)
 			{
 				yield return new StatDrawEntry(StatCategoryDefOf.Building, (string)"IKOB_CBEX_RepairCostRequirements".Translate(), modExt.RepairCost.LabelCap, "IKOB_CBEX_REPAIR_WITH".Translate(), 200);
 				yield return new StatDrawEntry(StatCategoryDefOf.Building, (string)"IKOB_CBEX_RT".Translate(), modExt.ticksToRepair.ToString(), "IKOB_CBEX_REPAIR_TIME".Translate(), 201);
+			}
+		}
+		#endregion
+
+		#region InspectString
+		[HarmonyPatch(typeof(CompBreakdownable), nameof(CompBreakdownable.CompInspectStringExtra))]
+		[HarmonyTranspiler]
+		public static IEnumerable<CodeInstruction> ReplaceInspectString(IEnumerable<CodeInstruction> instructions, ILGenerator generator)
+		{
+			List<CodeInstruction> inst = instructions.ToList();
+			for (int i = 0; i < inst.Count; i++)
+			{
+				if (inst[i].opcode == OpCodes.Ldstr && (string)inst[i].operand == "BrokenDown")
+				{
+					Label translateCall = generator.DefineLabel();
+					inst[i+1].labels.Add(translateCall);
+					Label defLabel = generator.DefineLabel();
+					// this.def.GetModExtension<ModExtension_Breakdownable>()
+					yield return Ldloc_0;
+					yield return Ldfld[def];
+					yield return Callvirt[get_ModExt];
+					yield return Brfalse_S[defLabel];
+					yield return Ldloc_0;
+					yield return Ldfld[def];
+					yield return Callvirt[get_ModExt];
+					yield return Ldfld[AccessTools.Field(typeof(ModExtension_Breakdownable), nameof(ModExtension_Breakdownable.label))];
+					yield return Br_S[translateCall];
+					yield return new CodeInstruction(OpCodes.Ldstr, "BrokenDown") { labels = new List<Label> { defLabel } };
+					continue;
+				}
+				yield return inst[i];
 			}
 		}
 		#endregion
