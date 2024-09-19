@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-<IKOB_CBEX_RepairCostRequirements>修复成本：</IKOB_CBEX_RepairCostRequirements>
+<IKOB_CBEX_RepairCostRequirements>修复成本</IKOB_CBEX_RepairCostRequirements>
 <IKOB_CBEX_RCT>故障修复</IKOB_CBEX_RCT>
 <IKOB_CBEX_REPAIR_WITH>当此建筑故障时修复所需要的物品</IKOB_CBEX_REPAIR_WITH>
 <IKOB_CBEX_RT>修复耗时</IKOB_CBEX_RT>

@@ -1,0 +1,494 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Patch>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="TableElectronics"]</xpath>
+    <value>
+      <li Class="Isekaiob.ModExtension_Breakdownable">
+        <eventMTBInTicks>0</eventMTBInTicks>
+        <RepairCost>Mechanism</RepairCost>
+        <label>电烙铁卡住了！</label>
+        <ticksToRepair>1000</ticksToRepair>
+      </li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="RobAssem"]</xpath>
+    <value>
+      <li Class="Isekaiob.ModExtension_Breakdownable">
+        <eventMTBInTicks>3600000</eventMTBInTicks>
+        <RepairCost>Microchips</RepairCost>
+        <label>机械臂卡死一定是主控芯片的问题</label>
+        <ticksToRepair>1000</ticksToRepair>
+      </li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="TableMachining"]</xpath>
+    <value>
+      <li Class="Isekaiob.ModExtension_Breakdownable">
+        <eventMTBInTicks>0</eventMTBInTicks>
+        <RepairCost>Mechanism</RepairCost>
+        <label>该死，刀又进深了</label>
+        <ticksToRepair>1000</ticksToRepair>
+      </li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="TableSawmillElectric"]</xpath>
+    <value>
+      <li Class="Isekaiob.ModExtension_Breakdownable">
+        <eventMTBInTicks>0</eventMTBInTicks>
+        <RepairCost>Mechanism</RepairCost>
+        <label>锯盘锯碎了！</label>
+        <ticksToRepair>1000</ticksToRepair>
+      </li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="ElectricStove"]</xpath>
+    <value>
+      <li Class="Isekaiob.ModExtension_Breakdownable">
+        <eventMTBInTicks>0</eventMTBInTicks>
+        <RepairCost>ElectronicComponents</RepairCost>
+        <label>发热部件</label>
+        <ticksToRepair>1000</ticksToRepair>
+      </li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="ElectricOven"]</xpath>
+    <value>
+      <li Class="Isekaiob.ModExtension_Breakdownable">
+        <eventMTBInTicks>0</eventMTBInTicks>
+        <RepairCost>ElectronicComponents</RepairCost>
+        <label>发热部件</label>
+        <ticksToRepair>1000</ticksToRepair>
+      </li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="MillElectric"]</xpath>
+    <value>
+      <li Class="Isekaiob.ModExtension_Breakdownable">
+        <eventMTBInTicks>0</eventMTBInTicks>
+        <RepairCost>Mechanism</RepairCost>
+        <label>轴断了！</label>
+        <ticksToRepair>1000</ticksToRepair>
+      </li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="ElectricStove_Pro"]</xpath>
+    <value>
+      <li Class="Isekaiob.ModExtension_Breakdownable">
+        <eventMTBInTicks>0</eventMTBInTicks>
+        <RepairCost>Electronics</RepairCost>
+        <label>怎么烧糊了，一定是主控电流不均匀导致的</label>
+        <ticksToRepair>1000</ticksToRepair>
+      </li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="ElectricTailoringBench"]</xpath>
+    <value>
+      <li Class="Isekaiob.ModExtension_Breakdownable">
+        <eventMTBInTicks>0</eventMTBInTicks>
+        <RepairCost>ElectronicComponents</RepairCost>
+        <label>让我们换个保险丝</label>
+        <ticksToRepair>1000</ticksToRepair>
+      </li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="HyperTailoringBench"]</xpath>
+    <value>
+      <li Class="Isekaiob.ModExtension_Breakdownable">
+        <eventMTBInTicks>0</eventMTBInTicks>
+        <RepairCost>MagneticMaterial</RepairCost>
+        <label>永磁悬浮失效了！</label>
+        <ticksToRepair>1000</ticksToRepair>
+      </li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="ElectricSmithy"]</xpath>
+    <value>
+      <li Class="Isekaiob.ModExtension_Breakdownable">
+        <eventMTBInTicks>0</eventMTBInTicks>
+        <RepairCost>ElectronicComponents</RepairCost>
+        <label>发热部件</label>
+        <ticksToRepair>1000</ticksToRepair>
+      </li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="WeaponCraftingWorkTable"]</xpath>
+    <value>
+      <li Class="Isekaiob.ModExtension_Breakdownable">
+        <eventMTBInTicks>0</eventMTBInTicks>
+        <RepairCost>Mechanism</RepairCost>
+        <label>该死，刀又进深了</label>
+        <ticksToRepair>1000</ticksToRepair>
+      </li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="AdvWeaponCraftingWorkTable"]</xpath>
+    <value>
+      <li Class="Isekaiob.ModExtension_Breakdownable">
+        <eventMTBInTicks>0</eventMTBInTicks>
+        <RepairCost>AdvMechanism</RepairCost>
+        <label>该死，刀又进深了</label>
+        <ticksToRepair>1000</ticksToRepair>
+      </li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="MechWeaponCraftingWorkTable"]</xpath>
+    <value>
+      <li Class="Isekaiob.ModExtension_Breakdownable">
+        <eventMTBInTicks>0</eventMTBInTicks>
+        <RepairCost>ComponentUltra</RepairCost>
+        <label>你把枪和工作台焊一块了！</label>
+        <ticksToRepair>1000</ticksToRepair>
+      </li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="TableChemlab"]</xpath>
+    <value>
+      <li Class="Isekaiob.ModExtension_Breakdownable">
+        <eventMTBInTicks>3600000</eventMTBInTicks>
+        <RepairCost>Mechanism</RepairCost>
+        <label>它卡住了！</label>
+        <ticksToRepair>1000</ticksToRepair>
+      </li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="WoodFiredGenerator"]</xpath>
+    <value>
+      <li Class="Isekaiob.ModExtension_Breakdownable">
+        <eventMTBInTicks>3600000</eventMTBInTicks>
+        <RepairCost>Mechanism</RepairCost>
+        <label>它卡住了！</label>
+        <ticksToRepair>1000</ticksToRepair>
+      </li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="CoalPowerPlant"]</xpath>
+    <value>
+      <li Class="Isekaiob.ModExtension_Breakdownable">
+        <eventMTBInTicks>3600000</eventMTBInTicks>
+        <RepairCost>ElectronicComponents</RepairCost>
+        <label>让我们换个保险丝</label>
+        <ticksToRepair>1000</ticksToRepair>
+      </li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="BiofuelRefinery"]</xpath>
+    <value>
+      <li Class="Isekaiob.ModExtension_Breakdownable">
+        <eventMTBInTicks>3600000</eventMTBInTicks>
+        <RepairCost>ElectronicComponents</RepairCost>
+        <label>发热部件</label>
+        <ticksToRepair>1000</ticksToRepair>
+      </li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="SolarGenerator"]</xpath>
+    <value>
+      <li Class="Isekaiob.ModExtension_Breakdownable">
+        <eventMTBInTicks>3600000</eventMTBInTicks>
+        <RepairCost>ElectronicComponents</RepairCost>
+        <label>让我们换个保险丝</label>
+        <ticksToRepair>1000</ticksToRepair>
+      </li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="AdvancedSolarGenerator"]</xpath>
+    <value>
+      <li Class="Isekaiob.ModExtension_Breakdownable">
+        <eventMTBInTicks>3600000</eventMTBInTicks>
+        <RepairCost>ComponentAdvanced</RepairCost>
+        <label>它卡住了！</label>
+        <ticksToRepair>1000</ticksToRepair>
+      </li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="WindTurbine"]</xpath>
+    <value>
+      <li Class="Isekaiob.ModExtension_Breakdownable">
+        <eventMTBInTicks>3600000</eventMTBInTicks>
+        <RepairCost>Mechanism</RepairCost>
+        <label>它卡住了！</label>
+        <ticksToRepair>1000</ticksToRepair>
+      </li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="GauseWindTurbine"]</xpath>
+    <value>
+      <li Class="Isekaiob.ModExtension_Breakdownable">
+        <eventMTBInTicks>3600000</eventMTBInTicks>
+        <RepairCost>Mechanism</RepairCost>
+        <label>它卡住了！</label>
+        <ticksToRepair>1000</ticksToRepair>
+      </li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="GeothermalGenerator"]</xpath>
+    <value>
+      <li Class="Isekaiob.ModExtension_Breakdownable">
+        <eventMTBInTicks>3600000</eventMTBInTicks>
+        <RepairCost>Mechanism</RepairCost>
+        <label>它卡住了！</label>
+        <ticksToRepair>1000</ticksToRepair>
+      </li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="PlasmaGen"]</xpath>
+    <value>
+      <li Class="Isekaiob.ModExtension_Breakdownable">
+        <eventMTBInTicks>3600000</eventMTBInTicks>
+        <RepairCost>ComponentSpacer</RepairCost>
+        <label>元件烧坏了！</label>
+        <ticksToRepair>1000</ticksToRepair>
+      </li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="TableBionics"]</xpath>
+    <value>
+      <li Class="Isekaiob.ModExtension_Breakdownable">
+        <eventMTBInTicks>3600000</eventMTBInTicks>
+        <RepairCost>AdvMechanism</RepairCost>
+        <label>该死，刀又进深了</label>
+        <ticksToRepair>1000</ticksToRepair>
+      </li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="UpgradingStation"]</xpath>
+    <value>
+      <li Class="Isekaiob.ModExtension_Breakdownable">
+        <eventMTBInTicks>3600000</eventMTBInTicks>
+        <RepairCost>ComponentUltra</RepairCost>
+        <label>该死，刀又进深了</label>
+        <ticksToRepair>1000</ticksToRepair>
+      </li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="MatterConverter"]</xpath>
+    <value>
+      <li Class="Isekaiob.ModExtension_Breakdownable">
+        <eventMTBInTicks>3600000</eventMTBInTicks>
+        <RepairCost>ComponentUltra</RepairCost>
+        <label>总之它坏了，让我们把它的核心部件换掉吧</label>
+        <ticksToRepair>1000</ticksToRepair>
+      </li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="TableSynthetics"]</xpath>
+    <value>
+      <li Class="Isekaiob.ModExtension_Breakdownable">
+        <eventMTBInTicks>3600000</eventMTBInTicks>
+        <RepairCost>ComponentAdvanced</RepairCost>
+        <label>总之它坏了，让我们把它的核心部件换掉吧</label>
+        <ticksToRepair>1000</ticksToRepair>
+      </li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="NutrientPasteDispenser"]</xpath>
+    <value>
+      <li Class="Isekaiob.ModExtension_Breakdownable">
+        <eventMTBInTicks>3600000</eventMTBInTicks>
+        <RepairCost>Electronics</RepairCost>
+        <label>今天的营养膏屎一样味道一定是主板烧了</label>
+        <ticksToRepair>1000</ticksToRepair>
+      </li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="HiTechResearchBench"]</xpath>
+    <value>
+      <li Class="Isekaiob.ModExtension_Breakdownable">
+        <eventMTBInTicks>3600000</eventMTBInTicks>
+        <RepairCost>Electronics</RepairCost>
+        <label>显示屏不亮了，一定是主板又烧了。</label>
+        <ticksToRepair>1000</ticksToRepair>
+      </li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="LabTerminal"]</xpath>
+    <value>
+      <li Class="Isekaiob.ModExtension_Breakdownable">
+        <eventMTBInTicks>3600000</eventMTBInTicks>
+        <RepairCost>ElectronicComponents</RepairCost>
+        <label>1+1=? 1+1=3这对吗，这不对！谁焊的电路！</label>
+        <ticksToRepair>1000</ticksToRepair>
+      </li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="MultiAnalyzer"]</xpath>
+    <value>
+      <li Class="Isekaiob.ModExtension_Breakdownable">
+        <eventMTBInTicks>3600000</eventMTBInTicks>
+        <RepairCost>Electronics</RepairCost>
+        <label>你们谁拿它超频打游戏去了，主板烧了！</label>
+        <ticksToRepair>1000</ticksToRepair>
+      </li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="LabStation"]</xpath>
+    <value>
+      <li Class="Isekaiob.ModExtension_Breakdownable">
+        <eventMTBInTicks>3600000</eventMTBInTicks>
+        <RepairCost>AdvMechanism</RepairCost>
+        <label>一眼磁带机，磁头坏了要换很合理</label>
+        <ticksToRepair>1000</ticksToRepair>
+      </li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="CommsConsole"]</xpath>
+    <value>
+      <li Class="Isekaiob.ModExtension_Breakdownable">
+        <eventMTBInTicks>3600000</eventMTBInTicks>
+        <RepairCost>Electronics</RepairCost>
+        <label>它烧了</label>
+        <ticksToRepair>1000</ticksToRepair>
+      </li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="OrbitalTradeBeacon"]</xpath>
+    <value>
+      <li Class="Isekaiob.ModExtension_Breakdownable">
+        <eventMTBInTicks>3600000</eventMTBInTicks>
+        <RepairCost>ComponentIndustrial</RepairCost>
+        <label>它卡住了！</label>
+        <ticksToRepair>1000</ticksToRepair>
+      </li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="TubeTelevision"]</xpath>
+    <value>
+      <li Class="Isekaiob.ModExtension_Breakdownable">
+        <eventMTBInTicks>3600000</eventMTBInTicks>
+        <RepairCost>ElectronicComponents</RepairCost>
+        <label>显像管坏了，让我们换掉它</label>
+        <ticksToRepair>1000</ticksToRepair>
+      </li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="MegascreenTelevision"]</xpath>
+    <value>
+      <li Class="Isekaiob.ModExtension_Breakdownable">
+        <eventMTBInTicks>3600000</eventMTBInTicks>
+        <RepairCost>Electronics</RepairCost>
+        <label>主板烧了</label>
+        <ticksToRepair>1000</ticksToRepair>
+      </li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="GlassMonitorLarge"]</xpath>
+    <value>
+      <li Class="Isekaiob.ModExtension_Breakdownable">
+        <eventMTBInTicks>3600000</eventMTBInTicks>
+        <RepairCost>Electronics</RepairCost>
+        <label>主板烧了</label>
+        <ticksToRepair>1000</ticksToRepair>
+      </li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="LED电灯"]</xpath>
+    <value>
+      <li Class="Isekaiob.ModExtension_Breakdownable">
+        <eventMTBInTicks>3600000</eventMTBInTicks>
+        <RepairCost>Electronics</RepairCost>
+        <label>让我们换一盘灯珠上去</label>
+        <ticksToRepair>1000</ticksToRepair>
+      </li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="industrial_surg_lamp"]</xpath>
+    <value>
+      <li Class="Isekaiob.ModExtension_Breakdownable">
+        <eventMTBInTicks>3600000</eventMTBInTicks>
+        <RepairCost>Electronics</RepairCost>
+        <label>它烧了</label>
+        <ticksToRepair>1000</ticksToRepair>
+      </li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="space_surg_lamp"]</xpath>
+    <value>
+      <li Class="Isekaiob.ModExtension_Breakdownable">
+        <eventMTBInTicks>3600000</eventMTBInTicks>
+        <RepairCost>ComponentSpacer</RepairCost>
+        <label>它烧了</label>
+        <ticksToRepair>1000</ticksToRepair>
+      </li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperation.FindModByID">
+    <mods>
+      <li>dubwise.rimefeller</li>
+    </mods>
+    <match Class="PatchOperationSequence">
+      <operations>
+        <li Class="PatchOperationAddModExtension">
+          <xpath>Defs/ThingDef[defName="CrudeCracker"]</xpath>
+          <value>
+            <li Class="Isekaiob.ModExtension_Breakdownable">
+              <eventMTBInTicks>3600000</eventMTBInTicks>
+              <RepairCost>Electronics</RepairCost>
+              <label>它卡住了！</label>
+              <ticksToRepair>1000</ticksToRepair>
+            </li>
+          </value>
+        </li>
+      </operations>
+    </match>
+  </Operation>
+  <Operation Class="PatchOperation.FindModByID">
+    <mods>
+      <li>ratys.rtfuse</li>
+    </mods>
+    <match Class="PatchOperationSequence">
+      <operations>
+        <li Class="PatchOperationAddModExtension">
+          <xpath>Defs/ThingDef[defName="Building_RTMakeshiftFuse"]</xpath>
+          <value>
+            <li Class="Isekaiob.ModExtension_Breakdownable">
+              <eventMTBInTicks>3600000</eventMTBInTicks>
+              <RepairCost>ElectronicComponents</RepairCost>
+              <label>让我们换个保险丝</label>
+              <ticksToRepair>1000</ticksToRepair>
+            </li>
+          </value>
+        </li>
+      </operations>
+    </match>
+  </Operation>
+</Patch>

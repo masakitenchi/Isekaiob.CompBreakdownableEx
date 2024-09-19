@@ -7,7 +7,6 @@ using System.Collections.Generic;
 using System.Reflection.Emit;
 using System.Reflection;
 using System.Linq;
-using Mono.Posix;
 
 namespace Isekaiob
 {
@@ -15,8 +14,22 @@ namespace Isekaiob
 	{
 		public string label = "BrokenDown";
 		public int eventMTBInTicks = CompBreakdownable.BreakdownMTBTicks;
-		public ThingDef RepairCost = ThingDefOf.ComponentIndustrial;
+		public ThingDef RepairCost;
 		public int ticksToRepair = 1000;
+
+		static ModExtension_Breakdownable()
+		{
+			LongEventHandler.ExecuteWhenFinished(() => 
+			{
+				foreach(var def in DefDatabase<ThingDef>.AllDefs.Where(x => x.HasModExtension<ModExtension_Breakdownable>()))
+				{
+					if (def.GetModExtension<ModExtension_Breakdownable>() is ModExtension_Breakdownable modExt && modExt.RepairCost == null)
+					{
+						modExt.RepairCost = ThingDefOf.ComponentIndustrial;
+					}
+				}
+			});
+		}
 	}
 
 	[HarmonyPatch]
@@ -71,7 +84,6 @@ namespace Isekaiob
 
 		[HarmonyPatch(typeof(WorkGiver_FixBrokenDownBuilding), nameof(WorkGiver_FixBrokenDownBuilding.HasJobOnThing))]
 		[HarmonyTranspiler]
-		[HarmonyDebug]
 		public static IEnumerable<CodeInstruction> ComponentRedirect(IEnumerable<CodeInstruction> instructions, ILGenerator generator)
 		{
 			/*
@@ -184,11 +196,13 @@ namespace Isekaiob
 					inst[i+1].labels.Add(translateCall);
 					Label defLabel = generator.DefineLabel();
 					// this.def.GetModExtension<ModExtension_Breakdownable>()
-					yield return Ldloc_0;
+					yield return Ldarg_0;
+					yield return Ldfld[parent];
 					yield return Ldfld[def];
 					yield return Callvirt[get_ModExt];
 					yield return Brfalse_S[defLabel];
-					yield return Ldloc_0;
+					yield return Ldarg_0;
+					yield return Ldfld[parent];
 					yield return Ldfld[def];
 					yield return Callvirt[get_ModExt];
 					yield return Ldfld[AccessTools.Field(typeof(ModExtension_Breakdownable), nameof(ModExtension_Breakdownable.label))];
