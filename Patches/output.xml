@@ -4,7 +4,7 @@
     <xpath>Defs/ThingDef[defName="TableElectronics"]</xpath>
     <value>
       <li Class="Isekaiob.ModExtension_Breakdownable">
-        <eventMTBInTicks>0</eventMTBInTicks>
+        <eventMTBInTicks>3600000</eventMTBInTicks>
         <RepairCost>Mechanism</RepairCost>
         <label>电烙铁卡住了！</label>
         <ticksToRepair>1000</ticksToRepair>
@@ -26,7 +26,7 @@
     <xpath>Defs/ThingDef[defName="TableMachining"]</xpath>
     <value>
       <li Class="Isekaiob.ModExtension_Breakdownable">
-        <eventMTBInTicks>0</eventMTBInTicks>
+        <eventMTBInTicks>2700000</eventMTBInTicks>
         <RepairCost>Mechanism</RepairCost>
         <label>该死，刀又进深了</label>
         <ticksToRepair>1000</ticksToRepair>
@@ -37,7 +37,7 @@
     <xpath>Defs/ThingDef[defName="TableSawmillElectric"]</xpath>
     <value>
       <li Class="Isekaiob.ModExtension_Breakdownable">
-        <eventMTBInTicks>0</eventMTBInTicks>
+        <eventMTBInTicks>1800000</eventMTBInTicks>
         <RepairCost>Mechanism</RepairCost>
         <label>锯盘锯碎了！</label>
         <ticksToRepair>1000</ticksToRepair>
@@ -48,7 +48,7 @@
     <xpath>Defs/ThingDef[defName="ElectricStove"]</xpath>
     <value>
       <li Class="Isekaiob.ModExtension_Breakdownable">
-        <eventMTBInTicks>0</eventMTBInTicks>
+        <eventMTBInTicks>3600000</eventMTBInTicks>
         <RepairCost>ElectronicComponents</RepairCost>
         <label>发热部件</label>
         <ticksToRepair>1000</ticksToRepair>
@@ -59,7 +59,7 @@
     <xpath>Defs/ThingDef[defName="ElectricOven"]</xpath>
     <value>
       <li Class="Isekaiob.ModExtension_Breakdownable">
-        <eventMTBInTicks>0</eventMTBInTicks>
+        <eventMTBInTicks>3600000</eventMTBInTicks>
         <RepairCost>ElectronicComponents</RepairCost>
         <label>发热部件</label>
         <ticksToRepair>1000</ticksToRepair>
@@ -70,7 +70,7 @@
     <xpath>Defs/ThingDef[defName="MillElectric"]</xpath>
     <value>
       <li Class="Isekaiob.ModExtension_Breakdownable">
-        <eventMTBInTicks>0</eventMTBInTicks>
+        <eventMTBInTicks>1800000</eventMTBInTicks>
         <RepairCost>Mechanism</RepairCost>
         <label>轴断了！</label>
         <ticksToRepair>1000</ticksToRepair>
@@ -81,7 +81,7 @@
     <xpath>Defs/ThingDef[defName="ElectricStove_Pro"]</xpath>
     <value>
       <li Class="Isekaiob.ModExtension_Breakdownable">
-        <eventMTBInTicks>0</eventMTBInTicks>
+        <eventMTBInTicks>2700000</eventMTBInTicks>
         <RepairCost>Electronics</RepairCost>
         <label>怎么烧糊了，一定是主控电流不均匀导致的</label>
         <ticksToRepair>1000</ticksToRepair>
@@ -92,9 +92,9 @@
     <xpath>Defs/ThingDef[defName="ElectricTailoringBench"]</xpath>
     <value>
       <li Class="Isekaiob.ModExtension_Breakdownable">
-        <eventMTBInTicks>0</eventMTBInTicks>
+        <eventMTBInTicks>3600000</eventMTBInTicks>
         <RepairCost>ElectronicComponents</RepairCost>
-        <label>让我们换个保险丝</label>
+        <label>Let's replace its fuse</label>
         <ticksToRepair>1000</ticksToRepair>
       </li>
     </value>
@@ -103,7 +103,7 @@
     <xpath>Defs/ThingDef[defName="HyperTailoringBench"]</xpath>
     <value>
       <li Class="Isekaiob.ModExtension_Breakdownable">
-        <eventMTBInTicks>0</eventMTBInTicks>
+        <eventMTBInTicks>2700000</eventMTBInTicks>
         <RepairCost>MagneticMaterial</RepairCost>
         <label>永磁悬浮失效了！</label>
         <ticksToRepair>1000</ticksToRepair>
@@ -114,7 +114,7 @@
     <xpath>Defs/ThingDef[defName="ElectricSmithy"]</xpath>
     <value>
       <li Class="Isekaiob.ModExtension_Breakdownable">
-        <eventMTBInTicks>0</eventMTBInTicks>
+        <eventMTBInTicks>3600000</eventMTBInTicks>
         <RepairCost>ElectronicComponents</RepairCost>
         <label>发热部件</label>
         <ticksToRepair>1000</ticksToRepair>
@@ -125,7 +125,7 @@
     <xpath>Defs/ThingDef[defName="WeaponCraftingWorkTable"]</xpath>
     <value>
       <li Class="Isekaiob.ModExtension_Breakdownable">
-        <eventMTBInTicks>0</eventMTBInTicks>
+        <eventMTBInTicks>2580000</eventMTBInTicks>
         <RepairCost>Mechanism</RepairCost>
         <label>该死，刀又进深了</label>
         <ticksToRepair>1000</ticksToRepair>
@@ -136,7 +136,7 @@
     <xpath>Defs/ThingDef[defName="AdvWeaponCraftingWorkTable"]</xpath>
     <value>
       <li Class="Isekaiob.ModExtension_Breakdownable">
-        <eventMTBInTicks>0</eventMTBInTicks>
+        <eventMTBInTicks>2580000</eventMTBInTicks>
         <RepairCost>AdvMechanism</RepairCost>
         <label>该死，刀又进深了</label>
         <ticksToRepair>1000</ticksToRepair>
@@ -147,7 +147,7 @@
     <xpath>Defs/ThingDef[defName="MechWeaponCraftingWorkTable"]</xpath>
     <value>
       <li Class="Isekaiob.ModExtension_Breakdownable">
-        <eventMTBInTicks>0</eventMTBInTicks>
+        <eventMTBInTicks>2580000</eventMTBInTicks>
         <RepairCost>ComponentUltra</RepairCost>
         <label>你把枪和工作台焊一块了！</label>
         <ticksToRepair>1000</ticksToRepair>
@@ -160,7 +160,7 @@
       <li Class="Isekaiob.ModExtension_Breakdownable">
         <eventMTBInTicks>3600000</eventMTBInTicks>
         <RepairCost>Mechanism</RepairCost>
-        <label>它卡住了！</label>
+        <label>It's Stuck!</label>
         <ticksToRepair>1000</ticksToRepair>
       </li>
     </value>
@@ -171,7 +171,7 @@
       <li Class="Isekaiob.ModExtension_Breakdownable">
         <eventMTBInTicks>3600000</eventMTBInTicks>
         <RepairCost>Mechanism</RepairCost>
-        <label>它卡住了！</label>
+        <label>It's Stuck!</label>
         <ticksToRepair>1000</ticksToRepair>
       </li>
     </value>
@@ -182,7 +182,7 @@
       <li Class="Isekaiob.ModExtension_Breakdownable">
         <eventMTBInTicks>3600000</eventMTBInTicks>
         <RepairCost>ElectronicComponents</RepairCost>
-        <label>让我们换个保险丝</label>
+        <label>Let's replace its fuse</label>
         <ticksToRepair>1000</ticksToRepair>
       </li>
     </value>
@@ -204,7 +204,7 @@
       <li Class="Isekaiob.ModExtension_Breakdownable">
         <eventMTBInTicks>3600000</eventMTBInTicks>
         <RepairCost>ElectronicComponents</RepairCost>
-        <label>让我们换个保险丝</label>
+        <label>Let's replace its fuse</label>
         <ticksToRepair>1000</ticksToRepair>
       </li>
     </value>
@@ -215,7 +215,7 @@
       <li Class="Isekaiob.ModExtension_Breakdownable">
         <eventMTBInTicks>3600000</eventMTBInTicks>
         <RepairCost>ComponentAdvanced</RepairCost>
-        <label>它卡住了！</label>
+        <label>It's Stuck!</label>
         <ticksToRepair>1000</ticksToRepair>
       </li>
     </value>
@@ -226,7 +226,7 @@
       <li Class="Isekaiob.ModExtension_Breakdownable">
         <eventMTBInTicks>3600000</eventMTBInTicks>
         <RepairCost>Mechanism</RepairCost>
-        <label>它卡住了！</label>
+        <label>It's Stuck!</label>
         <ticksToRepair>1000</ticksToRepair>
       </li>
     </value>
@@ -237,7 +237,7 @@
       <li Class="Isekaiob.ModExtension_Breakdownable">
         <eventMTBInTicks>3600000</eventMTBInTicks>
         <RepairCost>Mechanism</RepairCost>
-        <label>它卡住了！</label>
+        <label>It's Stuck!</label>
         <ticksToRepair>1000</ticksToRepair>
       </li>
     </value>
@@ -248,7 +248,7 @@
       <li Class="Isekaiob.ModExtension_Breakdownable">
         <eventMTBInTicks>3600000</eventMTBInTicks>
         <RepairCost>Mechanism</RepairCost>
-        <label>它卡住了！</label>
+        <label>It's Stuck!</label>
         <ticksToRepair>1000</ticksToRepair>
       </li>
     </value>
@@ -259,7 +259,7 @@
       <li Class="Isekaiob.ModExtension_Breakdownable">
         <eventMTBInTicks>3600000</eventMTBInTicks>
         <RepairCost>ComponentSpacer</RepairCost>
-        <label>元件烧坏了！</label>
+        <label>Component burnt down!</label>
         <ticksToRepair>1000</ticksToRepair>
       </li>
     </value>
@@ -314,7 +314,7 @@
       <li Class="Isekaiob.ModExtension_Breakdownable">
         <eventMTBInTicks>3600000</eventMTBInTicks>
         <RepairCost>Electronics</RepairCost>
-        <label>今天的营养膏屎一样味道一定是主板烧了</label>
+        <label>Today's nutrient paste tastes awful. It's motherborad must be broken</label>
         <ticksToRepair>1000</ticksToRepair>
       </li>
     </value>
@@ -347,7 +347,7 @@
       <li Class="Isekaiob.ModExtension_Breakdownable">
         <eventMTBInTicks>3600000</eventMTBInTicks>
         <RepairCost>Electronics</RepairCost>
-        <label>你们谁拿它超频打游戏去了，主板烧了！</label>
+        <label>你们谁拿它超频打游戏去了，Motherboard burnt down！</label>
         <ticksToRepair>1000</ticksToRepair>
       </li>
     </value>
@@ -380,7 +380,7 @@
       <li Class="Isekaiob.ModExtension_Breakdownable">
         <eventMTBInTicks>3600000</eventMTBInTicks>
         <RepairCost>ComponentIndustrial</RepairCost>
-        <label>它卡住了！</label>
+        <label>It's Stuck!</label>
         <ticksToRepair>1000</ticksToRepair>
       </li>
     </value>
@@ -402,7 +402,7 @@
       <li Class="Isekaiob.ModExtension_Breakdownable">
         <eventMTBInTicks>3600000</eventMTBInTicks>
         <RepairCost>Electronics</RepairCost>
-        <label>主板烧了</label>
+        <label>Motherboard burnt down</label>
         <ticksToRepair>1000</ticksToRepair>
       </li>
     </value>
@@ -413,7 +413,7 @@
       <li Class="Isekaiob.ModExtension_Breakdownable">
         <eventMTBInTicks>3600000</eventMTBInTicks>
         <RepairCost>Electronics</RepairCost>
-        <label>主板烧了</label>
+        <label>Motherboard burnt down</label>
         <ticksToRepair>1000</ticksToRepair>
       </li>
     </value>
@@ -452,7 +452,7 @@
             <li Class="Isekaiob.ModExtension_Breakdownable">
               <eventMTBInTicks>3600000</eventMTBInTicks>
               <RepairCost>Electronics</RepairCost>
-              <label>它卡住了！</label>
+              <label>It's Stuck!</label>
               <ticksToRepair>1000</ticksToRepair>
             </li>
           </value>
@@ -472,7 +472,7 @@
             <li Class="Isekaiob.ModExtension_Breakdownable">
               <eventMTBInTicks>3600000</eventMTBInTicks>
               <RepairCost>ElectronicComponents</RepairCost>
-              <label>让我们换个保险丝</label>
+              <label>Let's replace its fuse</label>
               <ticksToRepair>1000</ticksToRepair>
             </li>
           </value>

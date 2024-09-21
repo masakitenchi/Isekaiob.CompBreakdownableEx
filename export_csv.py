@@ -8,7 +8,7 @@ ascii_check = re.compile(r'[A-Za-z0-9_]+')
 class csv_reader:
 	def __init__(self, path):
 		self.path = path
-		self.file = open(path, "r", encoding="utf-8")
+		self.file = open(path, "r", encoding="utf_8_sig")
 		self.name_dict = []
 		self.data = []
 		for name in self.file.readline().strip().split(","):
