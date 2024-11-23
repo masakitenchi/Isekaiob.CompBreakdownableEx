@@ -9,6 +9,7 @@ namespace Isekaiob
     public class CompBreakdownableExtended_Mod : Mod
     {
         public static ExtendedBreakdownModSettings settings;
+        internal static Harmony hInstance;
 
         /// <summary>
         /// Todo:Init harmony patch here
@@ -17,8 +18,13 @@ namespace Isekaiob
         public CompBreakdownableExtended_Mod(ModContentPack content) : base(content)
         {
             settings = GetSettings<ExtendedBreakdownModSettings>();
-            Harmony hInstance = new Harmony("isekaiob.cbex");
+            hInstance ??= new Harmony("isekaiob.cbex");
             hInstance.PatchAll(Assembly.GetExecutingAssembly());
+            MethodInfo moveNext = AccessTools.Method(AccessTools.Inner(typeof(RimWorld.JobDriver_FixBrokenDownBuilding), "<MakeNewToils>d__8"), "MoveNext");
+			if (moveNext is not null)
+			{
+				hInstance.Patch(moveNext, transpiler: new HarmonyMethod(typeof(ModExt_Breakdownable), nameof(ModExt_Breakdownable.RepairTickReroute)));
+			}
 #if DEBUG
             foreach (var patchedMethod in hInstance.GetPatchedMethods())
             {

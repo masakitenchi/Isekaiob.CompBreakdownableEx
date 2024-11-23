@@ -153,18 +153,30 @@ namespace Isekaiob
 		#endregion
 
 		#region ticksToRepair
-		[HarmonyPatch(typeof(JobDriver_FixBrokenDownBuilding), nameof(JobDriver_FixBrokenDownBuilding.MakeNewToils))]
-		[HarmonyPostfix]
-		public static IEnumerable<Toil> RepairTickReroute(IEnumerable<Toil> result)
+		public static IEnumerable<CodeInstruction> RepairTickReroute(IEnumerable<CodeInstruction> instructions)
 		{
-			foreach (var toil in result)
+			// Find ldfld class RimWorld.JobDriver_FixBrokenDownBuilding RimWorld.JobDriver_FixBrokenDownBuilding/'<MakeNewToils>d__8'::'<>4__this' and save the index
+			List<CodeInstruction> inst = instructions.ToList();
+			int thisIndex = inst.FindIndex(i => i.Is(OpCodes.Ldfld, AccessTools.Field(AccessTools.Inner(typeof(JobDriver_FixBrokenDownBuilding), "<MakeNewToils>d__8"), "<>4__this")));
+			if (thisIndex == -1)
 			{
-				if (toil.debugName == "Wait")
-				{
-					toil.defaultDuration = toil.actor.jobs.curJob.targetA.Thing.def.GetModExtension<ModExtension_Breakdownable>()?.ticksToRepair ?? 1000;
-				}
-				yield return toil;
+				Log.Error("Failed to find state machine in JobDriver_FixBrokenDownBuilding");
+				return inst;
 			}
+			int tickIndex = inst.FindIndex(i => i.Is(OpCodes.Ldc_I4, 1000));
+			if (tickIndex == -1)
+			{
+				Log.Error("Failed to find ticks in JobDriver_FixBrokenDownBuilding");
+				return inst;
+			}
+			inst[tickIndex] = new CodeInstruction(OpCodes.Ldloc_1); // <MakeNewToils>d__8.<>4__this
+			inst.Insert(tickIndex + 1, Call[AccessTools.Method(typeof(ModExt_Breakdownable), nameof(GetFixingTicks))]);
+			return inst;
+		}
+
+		private static int GetFixingTicks(JobDriver_FixBrokenDownBuilding instance)
+		{
+			return instance.Building.def.GetModExtension<ModExtension_Breakdownable>()?.ticksToRepair ?? 1000;
 		}
 		#endregion
 
@@ -176,7 +188,10 @@ namespace Isekaiob
 			foreach (var entry in result) yield return entry;
 			if (__instance.GetModExtension<ModExtension_Breakdownable>() is ModExtension_Breakdownable modExt)
 			{
-				yield return new StatDrawEntry(StatCategoryDefOf.Building, (string)"IKOB_CBEX_RepairCostRequirements".Translate(), modExt.RepairCost.LabelCap, "IKOB_CBEX_REPAIR_WITH".Translate(), 200);
+				yield return new StatDrawEntry(StatCategoryDefOf.Building, (string)"IKOB_CBEX_RepairCostRequirements".Translate(), modExt.RepairCost.LabelCap, "IKOB_CBEX_REPAIR_WITH".Translate(), 200, hyperlinks: new Dialog_InfoCard.Hyperlink[]
+				{
+					new Dialog_InfoCard.Hyperlink(modExt.RepairCost)
+				});
 				yield return new StatDrawEntry(StatCategoryDefOf.Building, (string)"IKOB_CBEX_RT".Translate(), modExt.ticksToRepair.ToString(), "IKOB_CBEX_REPAIR_TIME".Translate(), 201);
 			}
 		}

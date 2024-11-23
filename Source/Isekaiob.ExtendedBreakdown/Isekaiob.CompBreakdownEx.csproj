@@ -4,6 +4,7 @@
     <OutputType>Library</OutputType>
     <RootNamespace>Isekaiob</RootNamespace>
     <AssemblyName>Isekaiob.CompBreakdownableEx</AssemblyName>
+    <LangVersion>11.0</LangVersion>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
