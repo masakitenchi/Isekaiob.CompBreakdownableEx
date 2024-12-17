@@ -10,6 +10,7 @@ using System.Linq;
 
 namespace Isekaiob
 {
+	[StaticConstructorOnStartup]
 	public class ModExtension_Breakdownable : DefModExtension
 	{
 		public string label = "BrokenDown";
@@ -25,6 +26,7 @@ namespace Isekaiob
 				{
 					if (def.GetModExtension<ModExtension_Breakdownable>() is ModExtension_Breakdownable modExt && modExt.RepairCost == null)
 					{
+						Log.Message($"[CBEX] {def.defName} has no repair cost, defaulting to ComponentIndustrial");
 						modExt.RepairCost = ThingDefOf.ComponentIndustrial;
 					}
 				}
@@ -104,21 +106,7 @@ namespace Isekaiob
 			{
 				if (inst.Is(OpCodes.Call, FindClosestComponent))
 				{
-					Label instLabel = generator.DefineLabel();
-					inst.labels.Add(instLabel);
-					Label ComponentIndustrial = generator.DefineLabel();
-					// this.def.GetModExtension<ModExtension_Breakdownable>()
-					yield return Ldloc_0;
-					yield return Ldfld[def];
-					yield return Callvirt[get_ModExt];
-					yield return Stloc[modExtension];
-					// 
-					yield return Ldloc[modExtension];
-					yield return Brfalse_S[ComponentIndustrial];
-					yield return Ldloc[modExtension];
-					yield return Ldfld[AccessTools.Field(typeof(ModExtension_Breakdownable), nameof(ModExtension_Breakdownable.RepairCost))];
-					yield return Br_S[instLabel];
-					yield return new CodeInstruction(OpCodes.Ldsfld, AccessTools.Field(typeof(ThingDefOf), nameof(ThingDefOf.ComponentIndustrial))) { labels = new List<Label> { ComponentIndustrial } };
+					yield return Ldarg_2;
 					inst.operand = AccessTools.Method(typeof(ModExt_Breakdownable), nameof(FindClosestComponentReroute));
 					yield return inst;
 					continue;
@@ -145,9 +133,30 @@ namespace Isekaiob
 			}
 		}
 
-		// You can add 'this' to WorkGiver_FixBrokenDownBuilding, but it's redundant in CIL
-		private static Thing FindClosestComponentReroute(WorkGiver_FixBrokenDownBuilding instance, Pawn pawn, ThingDef def)
+		[HarmonyPatch(typeof(WorkGiver_FixBrokenDownBuilding), nameof(WorkGiver_FixBrokenDownBuilding.JobOnThing))]
+		[HarmonyTranspiler]
+		public static IEnumerable<CodeInstruction> RerouteThing(IEnumerable<CodeInstruction> instructions, ILGenerator generator)
 		{
+			bool found = false;
+			LocalBuilder modExtension = generator.DeclareLocal(typeof(ModExtension_Breakdownable));
+			foreach(var inst in instructions)
+			{
+				if (!found && inst.Is(OpCodes.Call, FindClosestComponent))
+				{
+					found = true;
+					yield return Ldarg_2;
+					inst.operand = AccessTools.Method(typeof(ModExt_Breakdownable), nameof(FindClosestComponentReroute));
+					yield return inst;
+					continue;
+				}
+				yield return inst;
+			}
+		}
+
+		// You can add 'this' to WorkGiver_FixBrokenDownBuilding, but it's redundant in CIL
+		private static Thing FindClosestComponentReroute(WorkGiver_FixBrokenDownBuilding instance, Pawn pawn, Thing building)
+		{
+			ThingDef def = building.def.GetModExtension<ModExtension_Breakdownable>()?.RepairCost ?? ThingDefOf.ComponentIndustrial;
 			return GenClosest.ClosestThingReachable(pawn.Position, pawn.Map, ThingRequest.ForDef(def), PathEndMode.InteractionCell, TraverseParms.For(pawn, pawn.NormalMaxDanger()), 9999f, (Thing x) => !x.IsForbidden(pawn) && pawn.CanReserve(x));
 		}
 		#endregion

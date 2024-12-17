@@ -1,6 +1,7 @@
 ﻿using LudeonTK;
 using Verse;
 using RimWorld;
+using System.Linq;
 
 namespace Isekaiob
 {
@@ -29,6 +30,13 @@ namespace Isekaiob
                     compBreakdownable.Notify_Repaired();
                 }
             }
+        }
+        [DebugAction("General","[IKOB]CBEX Log all cost",actionType = DebugActionType.Action,allowedGameStates = AllowedGameStates.Playing)]
+        public static void LogAllRepairCost()
+        {
+            TableDataGetter<ThingDef> label = new TableDataGetter<ThingDef>("Name", (ThingDef x) => x.LabelCap);
+            TableDataGetter<ThingDef> cost = new TableDataGetter<ThingDef>("Cost", (ThingDef x) => x.GetModExtension<ModExtension_Breakdownable>().RepairCost.LabelCap);
+            DebugTables.MakeTablesDialog(DefDatabase<ThingDef>.AllDefs.Where(x => x.HasModExtension<ModExtension_Breakdownable>()), label, cost);
         }
 
     }
